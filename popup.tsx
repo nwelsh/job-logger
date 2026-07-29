@@ -1,24 +1,41 @@
 import { useState } from "react"
 
-function IndexPopup() {
-  const [data, setData] = useState("")
+import { logJob } from "./lib/sheets"
 
+function IndexPopup() {
+  const [saved, setSaved] = useState(false)
+
+  const handleSave = async () => {
+    const [tab] = await chrome.tabs.query({
+      active: true,
+      currentWindow: true
+    })
+
+    console.log(tab.url)
+
+    setSaved(true)
+  }
   return (
     <div
       style={{
-        padding: 16
+        width: 300,
+        padding: 16,
+        fontFamily: "Arial"
       }}>
-      <h2>
-        Welcome to your{" "}
-        <a href="https://www.plasmo.com" target="_blank">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank">
-        View Docs
-      </a>
+      <h2>Job Logger</h2>
+
+      <p>Save the current Jobright job.</p>
+
+      <button
+        onClick={handleSave}
+        style={{
+          padding: "8px 16px",
+          cursor: "pointer"
+        }}>
+        Save Job
+      </button>
+
+      {saved && <p>✅ Saved (for now)</p>}
     </div>
   )
 }
