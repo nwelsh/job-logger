@@ -11,10 +11,17 @@ function IndexPopup() {
       currentWindow: true
     })
 
-    console.log(tab.url)
+    if (!tab.url) return
 
-    setSaved(true)
+    try {
+      await logJob(tab.url)
+      setSaved(true)
+    } catch (err) {
+      console.error(err)
+      alert("Failed to save job")
+    }
   }
+
   return (
     <div
       style={{
@@ -35,7 +42,7 @@ function IndexPopup() {
         Save Job
       </button>
 
-      {saved && <p>✅ Saved (for now)</p>}
+      {saved && <p>✅ Saved!</p>}
     </div>
   )
 }
