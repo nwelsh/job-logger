@@ -64,13 +64,13 @@ function IndexPopup() {
       />
 
       <label style={{ display: "block", fontSize: 12, marginTop: 8 }}>
-        Job Type
+        Location
       </label>
       <input
         type="text"
         value={jobType}
         onChange={(e) => setJobType(e.target.value)}
-        placeholder="e.g. Full-time"
+        placeholder="e.g. Remote"
         style={{ width: "100%", boxSizing: "border-box", padding: 4 }}
       />
 
