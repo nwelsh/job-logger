@@ -2,10 +2,14 @@ import { useState } from "react"
 
 import { logJob } from "./lib/sheets"
 
+// TODO:
+// make pretty
+// auto fill
+
 function IndexPopup() {
   const [company, setCompany] = useState("")
-  const [jobType, setJobType] = useState("")
-  const [jobTitle, setJobTitle] = useState("")
+  const [jobType, setJobType] = useState("Remote")
+  const [jobTitle, setJobTitle] = useState("Frontend Developer")
   const [replied, setReplied] = useState(false)
   const [unlimitedPto, setUnlimitedPto] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -47,7 +51,7 @@ function IndexPopup() {
         padding: 16,
         fontFamily: "Arial"
       }}>
-      <h2 style={{ marginBottom: 4 }}>Job Logger</h2>
+      <h2 style={{ marginBottom: 4 }}>Job Log-HER</h2>
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
         Save the current job.
       </p>
@@ -85,7 +89,13 @@ function IndexPopup() {
         style={{ width: "100%", boxSizing: "border-box", padding: 4 }}
       />
 
-      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 10 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          marginTop: 10
+        }}>
         <input
           type="checkbox"
           id="replied"
@@ -97,7 +107,8 @@ function IndexPopup() {
         </label>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 6 }}>
+      <div
+        style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 6 }}>
         <input
           type="checkbox"
           id="unlimitedPto"
