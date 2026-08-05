@@ -53,7 +53,7 @@ function IndexPopup() {
       }}>
       <h2 style={{ marginBottom: 4 }}>Job Log-HER</h2>
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
-        Save the current job.
+        Save this job to your job logger!
       </p>
 
       <label style={{ display: "block", fontSize: 12, marginTop: 8 }}>
