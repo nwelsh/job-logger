@@ -5,6 +5,7 @@ import { logJob } from "./lib/sheets"
 // TODO:
 // make pretty
 // auto fill
+// search the spreadsheet for this place
 
 function IndexPopup() {
   const [company, setCompany] = useState("")
@@ -133,6 +134,11 @@ function IndexPopup() {
       </button>
 
       {saved && <p>✅ Saved!</p>}
+
+      <p>quick links</p>
+      <p>https://www.linkedin.com/in/nicole--welsh/</p>
+      <p>https://github.com/nwelsh</p>
+      <p>https://nwelsh.github.io/</p>
     </div>
   )
 }
