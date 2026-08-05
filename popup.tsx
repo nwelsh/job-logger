@@ -139,6 +139,7 @@ function IndexPopup() {
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
       <p>https://github.com/nwelsh</p>
       <p>https://nwelsh.github.io/</p>
+      <a href="https://docs.google.com/document/d/18CtbIVSnbW4Joqaj0lmPwC_nXjPqpp1pIKLYBO6hXyg/edit?tab=t.0">resume/cover letter</a>
     </div>
   )
 }
