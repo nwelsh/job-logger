@@ -1,6 +1,8 @@
 import { Crafty_Girls } from "next/font/google"
 import { useState } from "react"
 
+import "./style.css"
+
 import { logJob } from "./lib/sheets"
 
 const craftyGirls = Crafty_Girls({
@@ -9,7 +11,7 @@ const craftyGirls = Crafty_Girls({
 })
 
 // TODO:
-// make pretty
+// make pretty: get girly font working 
 // auto fill
 // search the spreadsheet for this place
 // make job title a radio button: fed, swe, other
@@ -60,7 +62,7 @@ function IndexPopup() {
         fontFamily: "Arial",
         background: "#ffe5f1"
       }}>
-      <h2 style={{ marginBottom: 4 }} className={craftyGirls.className}>
+      <h2 style={{ marginBottom: 4, fontFamily: "'Crafty Girls', cursive" }}>
         Job Log-HER
       </h2>
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
