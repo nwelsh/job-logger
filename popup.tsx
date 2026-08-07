@@ -9,6 +9,7 @@ import { logJob } from "./lib/sheets"
 // auto fill
 // search the spreadsheet for this place
 // make job title a radio button: fed, swe, other
+// add a counter for that day
 
 function IndexPopup() {
   const [company, setCompany] = useState("")
