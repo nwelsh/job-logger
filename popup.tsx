@@ -1,17 +1,11 @@
-import { Crafty_Girls } from "next/font/google"
 import { useState } from "react"
 
 import "./style.css"
 
 import { logJob } from "./lib/sheets"
 
-const craftyGirls = Crafty_Girls({
-  weight: "400",
-  subsets: ["latin"]
-})
-
 // TODO:
-// make pretty: get girly font working 
+// make pretty: get girly font working
 // auto fill
 // search the spreadsheet for this place
 // make job title a radio button: fed, swe, other
@@ -62,9 +56,7 @@ function IndexPopup() {
         fontFamily: "Arial",
         background: "#ffe5f1"
       }}>
-      <h2 style={{ marginBottom: 4, fontFamily: "'Crafty Girls', cursive" }}>
-        Job Log-HER
-      </h2>
+      <h2 style={{ marginBottom: 4 }}>Job Log-HER</h2>
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
         Save this job to your job logger!
       </p>
@@ -183,7 +175,11 @@ function IndexPopup() {
         {saving ? "Saving..." : "Save Job"}
       </button>
 
-      {saved && <p>✅ Saved!</p>}
+      {saved && (
+        <p style={{ color: "#fe19c5", textAlign: "center", fontSize: 16 }}>
+          ✅ Saved!
+        </p>
+      )}
 
       <p>quick links</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
