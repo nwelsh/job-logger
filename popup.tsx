@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import "./style.css"
 
@@ -11,6 +11,11 @@ import { logJob } from "./lib/sheets"
 // make job title a radio button: fed, swe, other
 // add a counter for that day
 
+function getTodayKey() {
+  const today = new Date()
+  return `jobCount-${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+}
+
 function IndexPopup() {
   const [company, setCompany] = useState("")
   const [jobType, setJobType] = useState("Remote")
@@ -19,6 +24,24 @@ function IndexPopup() {
   const [unlimitedPto, setUnlimitedPto] = useState(false)
   const [saved, setSaved] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [todayCount, setTodayCount] = useState(0)
+
+  useEffect(() => {
+    const key = getTodayKey()
+    chrome.storage.local.get([key], (result) => {
+      setTodayCount(result[key] || 0)
+    })
+  }, [])
+
+  const incrementTodayCount = () => {
+    const key = getTodayKey()
+    chrome.storage.local.get([key], (result) => {
+      const newCount = (result[key] || 0) + 1
+      chrome.storage.local.set({ [key]: newCount }, () => {
+        setTodayCount(newCount)
+      })
+    })
+  }
 
   const handleSave = async () => {
     const [tab] = await chrome.tabs.query({
@@ -41,6 +64,7 @@ function IndexPopup() {
         unlimitedPto
       })
       setSaved(true)
+      incrementTodayCount()
     } catch (err) {
       console.error(err)
       alert("Failed to save job")
@@ -181,6 +205,16 @@ function IndexPopup() {
           ✅ Saved!
         </p>
       )}
+
+      <p
+        style={{
+          textAlign: "center",
+          fontSize: 13,
+          color: "#555",
+          marginTop: 8
+        }}>
+        You've applied to {todayCount} job{todayCount === 1 ? "" : "s"} today
+      </p>
 
       <p>quick links</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
