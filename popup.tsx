@@ -213,7 +213,7 @@ function IndexPopup() {
           color: "#555",
           marginTop: 8
         }}>
-        You've applied to {todayCount} job{todayCount === 1 ? "" : "s"} today
+        You've applied to {todayCount}/4 jobs today
       </p>
 
       <p>quick links</p>
