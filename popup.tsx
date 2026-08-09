@@ -212,7 +212,7 @@ function IndexPopup() {
           color: "#555",
           marginTop: 8
         }}>
-        You've applied to {todayCount}/4 jobs today
+        You've applied to {todayCount}/4 jobs today!
       </p>
 
       <p style={{ fontWeight: "bold" }}>Quick links/helpers</p>
