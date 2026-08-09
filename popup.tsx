@@ -9,7 +9,6 @@ import { logJob } from "./lib/sheets"
 // auto fill
 // search the spreadsheet for this place
 // make job title a radio button: fed, swe, other
-// add a counter for that day
 
 function getTodayKey() {
   const today = new Date()
@@ -216,11 +215,14 @@ function IndexPopup() {
         You've applied to {todayCount}/4 jobs today
       </p>
 
-      <p>quick links</p>
+      <p style={{ fontWeight: "bold" }}>Quick links/helpers</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
       <p>https://github.com/nwelsh</p>
       <p>https://nwelsh.github.io/</p>
-      <a href="https://docs.google.com/document/d/18CtbIVSnbW4Joqaj0lmPwC_nXjPqpp1pIKLYBO6hXyg/edit?tab=t.0">
+      <a
+        href="https://docs.google.com/document/d/18CtbIVSnbW4Joqaj0lmPwC_nXjPqpp1pIKLYBO6hXyg/edit?tab=t.0"
+        target="_blank
+      ">
         resume/cover letter
       </a>
     </div>
