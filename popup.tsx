@@ -5,7 +5,6 @@ import "./style.css"
 import { logJob } from "./lib/sheets"
 
 // TODO:
-// make pretty: get girly font working
 // auto fill
 // search the spreadsheet for this place
 // make job title a radio button: fed, swe, other
@@ -80,7 +79,9 @@ function IndexPopup() {
         fontFamily: "Arial",
         background: "#ffe5f1"
       }}>
-      <h2 style={{ marginBottom: 4 }}>Job Log-HER</h2>
+      <h2 style={{ marginBottom: 4, fontFamily: "cursive", fontSize: 32 }}>
+        Nicole's Job Log-HER
+      </h2>
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
         Save this job to your job logger!
       </p>
