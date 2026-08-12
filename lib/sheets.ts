@@ -1,12 +1,10 @@
 const SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbysnIZK1L0zkH9ho7w7vKhgW9c9WIPGSrkNWBW-M_5bJWobEntvN_A9QFj4Bdhwwyrp/exec"
+  "https://script.google.com/macros/s/AKfycbzyfhT314amArhgNgG8D-kMOwT9hzjm0ViJyPi99oIIEfkLd0yGvB8o5ctMGkL_WWbj/exec"
 
 interface JobEntry {
   company: string
   link: string
-  jobType: string
   jobTitle: string
-  replied: boolean
   unlimitedPto: boolean
 }
 
@@ -20,10 +18,8 @@ export async function logJob(entry: JobEntry) {
     date,
     source: entry.company,
     link: entry.link,
-    location: "Remote",
-    jobType: entry.jobType,
     jobTitle: entry.jobTitle,
-    replied: entry.replied,
+    replied: false,
     unlimitedPto: entry.unlimitedPto
   }
 

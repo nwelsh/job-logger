@@ -21,10 +21,8 @@ function getTodayKey() {
 
 function IndexPopup() {
   const [company, setCompany] = useState("")
-  const [jobType, setJobType] = useState("Remote")
   const [jobTitleOption, setJobTitleOption] = useState(JOB_TITLE_OPTIONS[0])
   const [customJobTitle, setCustomJobTitle] = useState("")
-  const [replied, setReplied] = useState(false)
   const [unlimitedPto, setUnlimitedPto] = useState(false)
   const [saved, setSaved] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -65,9 +63,7 @@ function IndexPopup() {
       await logJob({
         company,
         link: tab.url,
-        jobType,
         jobTitle: resolvedJobTitle,
-        replied,
         unlimitedPto
       })
       setSaved(true)
@@ -126,19 +122,6 @@ function IndexPopup() {
         }}>
         Location
       </label>
-      <input
-        type="text"
-        value={jobType}
-        onChange={(e) => setJobType(e.target.value)}
-        placeholder="e.g. Remote"
-        style={{
-          width: "100%",
-          boxSizing: "border-box",
-          padding: 4,
-          borderRadius: 12,
-          borderColor: "#fe19c5"
-        }}
-      />
 
       <label style={{ display: "block", fontSize: 12, marginTop: 8 }}>
         Job Title
@@ -203,25 +186,6 @@ function IndexPopup() {
             }}
           />
         )}
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 6,
-          marginTop: 10,
-          borderRadius: 12
-        }}>
-        <input
-          type="checkbox"
-          id="replied"
-          checked={replied}
-          onChange={(e) => setReplied(e.target.checked)}
-        />
-        <label htmlFor="replied" style={{ margin: 0, fontSize: 13 }}>
-          Replied
-        </label>
       </div>
 
       <div
