@@ -7,7 +7,12 @@ import { logJob } from "./lib/sheets"
 // TODO:
 // auto fill
 // search the spreadsheet for this place
-// make job title a radio button: fed, swe, other
+
+const JOB_TITLE_OPTIONS = [
+  "Frontend Developer",
+  "Frontend Software Engineer",
+  "Web Developer"
+]
 
 function getTodayKey() {
   const today = new Date()
@@ -17,7 +22,8 @@ function getTodayKey() {
 function IndexPopup() {
   const [company, setCompany] = useState("")
   const [jobType, setJobType] = useState("Remote")
-  const [jobTitle, setJobTitle] = useState("Frontend Developer")
+  const [jobTitleOption, setJobTitleOption] = useState(JOB_TITLE_OPTIONS[0])
+  const [customJobTitle, setCustomJobTitle] = useState("")
   const [replied, setReplied] = useState(false)
   const [unlimitedPto, setUnlimitedPto] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -41,6 +47,9 @@ function IndexPopup() {
     })
   }
 
+  const resolvedJobTitle =
+    jobTitleOption === "Other" ? customJobTitle : jobTitleOption
+
   const handleSave = async () => {
     const [tab] = await chrome.tabs.query({
       active: true,
@@ -57,7 +66,7 @@ function IndexPopup() {
         company,
         link: tab.url,
         jobType,
-        jobTitle,
+        jobTitle: resolvedJobTitle,
         replied,
         unlimitedPto
       })
@@ -134,19 +143,67 @@ function IndexPopup() {
       <label style={{ display: "block", fontSize: 12, marginTop: 8 }}>
         Job Title
       </label>
-      <input
-        type="text"
-        value={jobTitle}
-        onChange={(e) => setJobTitle(e.target.value)}
-        placeholder="e.g. Software Engineer"
-        style={{
-          width: "100%",
-          boxSizing: "border-box",
-          padding: 4,
-          borderRadius: 12,
-          borderColor: "#fe19c5"
-        }}
-      />
+      <div style={{ marginTop: 4 }}>
+        {JOB_TITLE_OPTIONS.map((option) => (
+          <div
+            key={option}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              marginTop: 4
+            }}>
+            <input
+              type="radio"
+              id={option}
+              name="jobTitle"
+              value={option}
+              checked={jobTitleOption === option}
+              onChange={(e) => setJobTitleOption(e.target.value)}
+            />
+            <label htmlFor={option} style={{ margin: 0, fontSize: 13 }}>
+              {option}
+            </label>
+          </div>
+        ))}
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            marginTop: 4
+          }}>
+          <input
+            type="radio"
+            id="Other"
+            name="jobTitle"
+            value="Other"
+            checked={jobTitleOption === "Other"}
+            onChange={(e) => setJobTitleOption(e.target.value)}
+          />
+          <label htmlFor="Other" style={{ margin: 0, fontSize: 13 }}>
+            Other
+          </label>
+        </div>
+
+        {jobTitleOption === "Other" && (
+          <input
+            type="text"
+            value={customJobTitle}
+            onChange={(e) => setCustomJobTitle(e.target.value)}
+            placeholder="Enter job title"
+            style={{
+              width: "100%",
+              boxSizing: "border-box",
+              padding: 4,
+              borderRadius: 12,
+              borderColor: "#fe19c5",
+              marginTop: 4
+            }}
+          />
+        )}
+      </div>
 
       <div
         style={{
@@ -220,10 +277,9 @@ function IndexPopup() {
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
       <p>https://github.com/nwelsh</p>
       <p>https://nwelsh.github.io/</p>
-      <a
+      
         href="https://docs.google.com/document/d/18CtbIVSnbW4Joqaj0lmPwC_nXjPqpp1pIKLYBO6hXyg/edit?tab=t.0"
-        target="_blank
-      ">
+        target="_blank">
         resume/cover letter
       </a>
     </div>
