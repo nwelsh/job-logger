@@ -90,12 +90,12 @@ function IndexPopup() {
       <p style={{ marginTop: 0, color: "#555", fontSize: 13 }}>
         Save this job to your job logger!
       </p>
-
       <label
         style={{
           display: "block",
           fontSize: 12,
-          marginTop: 8
+          marginTop: 8,
+          fontWeight: "bold"
         }}>
         Company
       </label>
@@ -117,13 +117,9 @@ function IndexPopup() {
         style={{
           display: "block",
           fontSize: 12,
-          marginTop: 8,
-          borderRadius: 12
+          marginTop: 16,
+          fontWeight: "bold"
         }}>
-        Location
-      </label>
-
-      <label style={{ display: "block", fontSize: 12, marginTop: 8 }}>
         Job Title
       </label>
       <div style={{ marginTop: 4 }}>
@@ -187,13 +183,12 @@ function IndexPopup() {
           />
         )}
       </div>
-
       <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: 6,
-          marginTop: 6,
+          marginTop: 16,
           borderRadius: 12
         }}>
         <input
@@ -206,7 +201,6 @@ function IndexPopup() {
           Unlimited PTO
         </label>
       </div>
-
       <button
         onClick={handleSave}
         disabled={saving}
@@ -220,13 +214,11 @@ function IndexPopup() {
         }}>
         {saving ? "Saving..." : "Save Job"}
       </button>
-
       {saved && (
         <p style={{ color: "#fe19c5", textAlign: "center", fontSize: 16 }}>
           ✅ Saved!
         </p>
       )}
-
       <p
         style={{
           textAlign: "center",
@@ -236,12 +228,10 @@ function IndexPopup() {
         }}>
         You've applied to {todayCount}/4 jobs today!
       </p>
-
       <p style={{ fontWeight: "bold" }}>Quick links/helpers</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
       <p>https://github.com/nwelsh</p>
       <p>https://nwelsh.github.io/</p>
-
       <a
         href="https://docs.google.com/document/d/18CtbIVSnbW4Joqaj0lmPwC_nXjPqpp1pIKLYBO6hXyg/edit?tab=t.0"
         target="_blank">
