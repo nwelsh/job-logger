@@ -186,20 +186,37 @@ function IndexPopup() {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
+          // alignItems: "center",
+          flexDirection: "column",
           gap: 6,
-          marginTop: 16,
-          borderRadius: 12
+          marginTop: 4
         }}>
-        <input
-          type="checkbox"
-          id="unlimitedPto"
-          checked={unlimitedPto}
-          onChange={(e) => setUnlimitedPto(e.target.checked)}
-        />
-        <label htmlFor="unlimitedPto" style={{ margin: 0, fontSize: 13 }}>
-          Unlimited PTO
+        <label
+          style={{
+            display: "block",
+            fontSize: 12,
+            marginTop: 16,
+            fontWeight: "bold"
+          }}>
+          Benefits
         </label>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6
+          }}>
+          <input
+            type="checkbox"
+            id="unlimitedPto"
+            checked={unlimitedPto}
+            onChange={(e) => setUnlimitedPto(e.target.checked)}
+          />
+
+          <label htmlFor="unlimitedPto" style={{ margin: 0, fontSize: 13 }}>
+            Unlimited PTO
+          </label>
+        </div>
       </div>
       <button
         onClick={handleSave}
