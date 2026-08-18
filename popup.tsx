@@ -254,6 +254,13 @@ function IndexPopup() {
         target="_blank">
         resume/cover letter
       </a>
+      <p>Why I want to work here:</p>
+      <p>
+        I am a very passionate frontend software engineer with focused
+        experience on UXUI design (professional experience as a designer) and
+        accessibility (WCAG certification). I genuinely love programming and
+        working with other team members/clients.{" "}
+      </p>
     </div>
   )
 }
