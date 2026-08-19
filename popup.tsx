@@ -243,7 +243,7 @@ function IndexPopup() {
           color: "#555",
           marginTop: 8
         }}>
-        You've applied to {todayCount}/4 jobs today!
+        You've applied to {todayCount}/4 jobs today{todayCount == 4 && '. All done!'}{todayCount > 4 && '. Wowww!'}
       </p>
       <p style={{ fontWeight: "bold" }}>Quick links/helpers</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
