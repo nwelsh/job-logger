@@ -243,7 +243,9 @@ function IndexPopup() {
           color: "#555",
           marginTop: 8
         }}>
-        You've applied to {todayCount}/4 jobs today{todayCount == 4 && '. All done!'}{todayCount > 4 && '. Wowww!'}
+        You've applied to {todayCount}/4 jobs today
+        {todayCount == 4 && ". All done!"}
+        {todayCount > 4 && ". Wowww!"}
       </p>
       <p style={{ fontWeight: "bold" }}>Quick links/helpers</p>
       <p>https://www.linkedin.com/in/nicole--welsh/</p>
@@ -260,6 +262,12 @@ function IndexPopup() {
         experience on UXUI design (professional experience as a designer) and
         accessibility (WCAG certification). I genuinely love programming and
         working with other team members/clients.{" "}
+      </p>
+      <p>
+        My favorite use of AI was integrating the Figma MCP server! I spend a
+        lot of time designing as well as frontend development so using the MCP
+        server to audit files is extremely useful. I have written scripts to
+        import variables and styles so designs and code can be 1-1.
       </p>
     </div>
   )
