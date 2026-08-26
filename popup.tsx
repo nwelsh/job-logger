@@ -263,6 +263,7 @@ function IndexPopup() {
         accessibility (WCAG certification). I genuinely love programming and
         working with other team members/clients.{" "}
       </p>
+      
       <p>
         My favorite use of AI was integrating the Figma MCP server! I spend a
         lot of time designing as well as frontend development so using the MCP
